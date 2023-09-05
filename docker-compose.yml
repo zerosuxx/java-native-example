@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    entrypoint: 'gradlew -x test build bootRun'
+    working_dir: /code
+    volumes:
+      - ./:/code
